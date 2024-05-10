@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import CharacterDetail from './CharacterDetail';
 import axios from 'axios';
 import md5 from 'md5';
-
+import NavBar from './NavBar';
+import { Link } from 'react-router-dom';
 
 const CharacterList = ({ onCharacterClick }) => {
   const [characters, setCharacters] = useState([]);
@@ -30,11 +31,12 @@ const CharacterList = ({ onCharacterClick }) => {
 
   const handleCharacterClick = (characterId) => {
     setSelectedCharacterId(characterId);
-    onCharacterClick(character);
+    onCharacterClick(characterId);
   };
 
   return (
     <div className='app-container'>
+      <NavBar />
       <h1>Marvel Comics Characters</h1>
       <div className="character-list">
         {characters.map((character) => (
@@ -43,6 +45,7 @@ const CharacterList = ({ onCharacterClick }) => {
           className="character"
           onClick={() => handleCharacterClick(character.id)}
         >
+          <Link to={`/characters/${character.id}`}>{character.name}</Link>
             <h3>{character.name}</h3>
             <img
               src={`${character.thumbnail.path}/portrait_medium.${character.thumbnail.extension}`}

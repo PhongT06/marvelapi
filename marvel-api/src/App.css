@@ -3,4 +3,29 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-bottom: 100%;
+}
+
+.app-container > h2 {
+  color: rgb(47, 46, 46);
+  text-shadow: 2px 2px 2px pink;
+  margin-top: 50px;
+}
+
+.nav-bar {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  background-color: rgb(37, 35, 35);
+  color: white; 
+}
+
+.nav-bar > a {
+  text-decoration: none; 
+  color: white; 
+}
+
+.nav-bar > a:hover {
+  color: rgb(217, 238, 57);
 }
